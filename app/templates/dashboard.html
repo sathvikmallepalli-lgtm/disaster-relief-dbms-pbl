@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% from '_table.html' import show %}
+{% block title %}Overview{% endblock %}
+{% block content %}
+  <div class="page-heading">
+    <div><p class="eyebrow">Disaster relief database</p><h1>Overview</h1>
+      <p>See the people, outstanding needs, and supplies in one place.</p></div>
+    <a class="button" href="{{ url_for('reports') }}">Open all reports</a>
+  </div>
+  <div class="metrics">
+    <div><strong>{{ counts.camps }}</strong><span>Camps</span></div>
+    <div><strong>{{ counts.families }}</strong><span>Active families</span></div>
+    <div><strong>{{ counts.people }}</strong><span>Registered people</span></div>
+    <div><strong>{{ counts.unmet }}</strong><span>Unmet item needs</span></div>
+  </div>
+  <section class="panel">
+    <div class="section-heading"><div><h2>Needs to review</h2><p>High urgency first, then oldest assessment.</p></div>
+      <a href="{{ url_for('needs') }}">View all needs</a></div>
+    {{ show(queue) }}
+  </section>
+  <div class="quick-links">
+    <a href="{{ url_for('families') }}">Register a family <span>→</span></a>
+    <a href="{{ url_for('donations') }}">Receive supplies <span>→</span></a>
+    <a href="{{ url_for('distributions') }}">Record a distribution <span>→</span></a>
+  </div>
+{% endblock %}

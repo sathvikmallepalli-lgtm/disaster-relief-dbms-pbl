@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Relief Register{% endblock %} · Project 60</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="{{ url_for('dashboard') }}">Relief Register <span>Project 60</span></a>
+      <nav aria-label="Main navigation">
+        <a href="{{ url_for('dashboard') }}">Overview</a>
+        <a href="{{ url_for('families') }}">Families</a>
+        <a href="{{ url_for('needs') }}">Needs</a>
+        <a href="{{ url_for('donations') }}">Receipts</a>
+        <a href="{{ url_for('assignments') }}">Volunteers</a>
+        <a href="{{ url_for('distributions') }}">Distribute</a>
+        <a href="{{ url_for('referrals') }}">Referrals</a>
+        <a href="{{ url_for('items') }}">Items</a>
+        <a href="{{ url_for('reports') }}">Reports</a>
+      </nav>
+    </div>
+  </header>
+  <main class="page">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% for category, message in messages %}
+        <div class="notice {{ category }}" role="status">{{ message }}</div>
+      {% endfor %}
+    {% endwith %}
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer">Fictional demonstration data · MySQL + Python · DBMS PBL</footer>
+</body>
+</html>

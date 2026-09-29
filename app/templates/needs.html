@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% from '_table.html' import show %}
+{% block title %}Needs{% endblock %}
+{% block content %}
+  <div class="page-heading"><div><p class="eyebrow">Assessment</p><h1>Unmet needs</h1>
+    <p>Urgency and waiting time make the queue explainable. Staff decide what to issue.</p></div></div>
+  <section class="panel"><h2>Assess a need</h2>
+    <form method="post" class="form-grid">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <label>Family<select name="family_id" required><option value="">Choose family</option>{% for family in families %}<option value="{{ family.family_id }}">{{ family.registration_code }}</option>{% endfor %}</select></label>
+      <label>Item<select name="item_id" required><option value="">Choose item</option>{% for item in items %}<option value="{{ item.item_id }}">{{ item.name }} ({{ item.unit }})</option>{% endfor %}</select></label>
+      <label>Relief round<input name="relief_round" maxlength="20" value="{{ today.strftime('%Y-W%W') }}" required></label>
+      <label>Quantity required<input name="quantity" type="number" min="1" required></label>
+      <label>Urgency<select name="urgency"><option>HIGH</option><option selected>MEDIUM</option><option>LOW</option></select></label>
+      <div class="form-actions"><button type="submit">Save assessment</button></div>
+    </form>
+  </section>
+  <section class="panel"><h2>Current unmet needs</h2>{{ show(rows) }}</section>
+{% endblock %}

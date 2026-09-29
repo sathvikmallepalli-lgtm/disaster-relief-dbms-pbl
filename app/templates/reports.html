@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% from '_table.html' import show %}
+{% block title %}Reports{% endblock %}
+{% block content %}
+  <div class="page-heading"><div><p class="eyebrow">SQL views</p><h1>Operational reports</h1>
+    <p>Each table comes from a database view that joins the normalized records.</p></div></div>
+  {% for title, rows in sections %}
+    <section class="panel"><h2>{{ title }}</h2>{{ show(rows) }}</section>
+  {% endfor %}
+{% endblock %}

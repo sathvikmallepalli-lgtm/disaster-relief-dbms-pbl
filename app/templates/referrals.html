@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Referrals{% endblock %}
+{% block content %}
+  <div class="page-heading"><div><p class="eyebrow">Follow-up</p><h1>Referrals</h1>
+    <p>Record where a person was referred and whether follow-up is complete.</p></div></div>
+  <section class="panel"><h2>Create referral</h2>
+    <form method="post" class="form-grid">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <label>Person<select name="person_id" required><option value="">Choose person</option>{% for person in persons %}<option value="{{ person.person_id }}">{{ person.full_name }} · {{ person.registration_code }}</option>{% endfor %}</select></label>
+      <label>Destination<input name="destination" maxlength="120" placeholder="Camp medical desk" required></label>
+      <label class="wide">Reason<input name="reason" maxlength="255" required></label>
+      <div class="form-actions"><button type="submit">Record referral</button></div>
+    </form>
+  </section>
+  <section class="panel"><h2>Referral history</h2>
+    {% if rows %}<div class="table-scroll"><table><thead><tr><th>Person</th><th>Family</th><th>Destination</th><th>Reason</th><th>Referred</th><th>Status</th><th>Update</th></tr></thead>
+      <tbody>{% for row in rows %}<tr><td>{{ row.person_name }}</td><td>{{ row.registration_code }}</td><td>{{ row.destination }}</td>
+        <td>{{ row.reason }}</td><td>{{ row.referred_at }}</td><td>{{ row.status }}</td><td>
+          <form method="post" action="{{ url_for('referrals_status', referral_id=row.referral_id) }}" class="inline-form small">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}"><label class="sr-only" for="status-{{ row.referral_id }}">Status</label>
+            <select id="status-{{ row.referral_id }}" name="status"><option>OPEN</option><option>COMPLETED</option><option>CANCELLED</option></select>
+            <button type="submit">Save</button></form></td></tr>{% endfor %}</tbody></table></div>
+    {% else %}<p class="empty">No referrals recorded.</p>{% endif %}
+  </section>
+{% endblock %}

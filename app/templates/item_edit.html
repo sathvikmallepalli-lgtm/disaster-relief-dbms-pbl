@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Edit item{% endblock %}
+{% block content %}
+  <div class="page-heading"><div><p class="eyebrow"><a href="{{ url_for('items') }}">Items</a> / Edit</p><h1>Edit {{ item.name }}</h1></div></div>
+  <section class="panel"><form method="post" class="form-grid">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <label>Name<input name="name" maxlength="100" value="{{ item.name }}" required></label>
+    <label>Unit<input name="unit" maxlength="30" value="{{ item.unit }}" required></label>
+    <label>Category<input name="category" maxlength="60" value="{{ item.category }}" required></label>
+    <div class="form-actions"><button type="submit">Save changes</button></div>
+  </form></section>
+{% endblock %}

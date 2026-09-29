@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% from '_table.html' import show %}
+{% block title %}Receipts{% endblock %}
+{% block content %}
+  <div class="page-heading"><div><p class="eyebrow">Warehouse receipt</p><h1>Donations and stock</h1>
+    <p>Each receipt updates the balance and creates a traceable stock movement.</p></div></div>
+  <section class="panel"><h2>Receive item</h2>
+    <form method="post" class="form-grid">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}"><input type="hidden" name="receipt_token" value="{{ token }}">
+      <label>Donor<select name="donor_id" required><option value="">Choose donor</option>{% for donor in donors %}<option value="{{ donor.donor_id }}">{{ donor.name }}</option>{% endfor %}</select></label>
+      <label>Warehouse<select name="warehouse_id" required><option value="">Choose warehouse</option>{% for warehouse in warehouses %}<option value="{{ warehouse.warehouse_id }}">{{ warehouse.name }}</option>{% endfor %}</select></label>
+      <label>Item<select name="item_id" required><option value="">Choose item</option>{% for item in items %}<option value="{{ item.item_id }}">{{ item.name }} ({{ item.unit }})</option>{% endfor %}</select></label>
+      <label>Quantity received<input name="quantity" type="number" min="1" required></label>
+      <div class="form-actions"><button type="submit">Record receipt</button></div>
+    </form>
+  </section>
+  <section class="panel compact"><h2>Add donor</h2>
+    <form method="post" action="{{ url_for('donors_add') }}" class="inline-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <label>Name<input name="name" maxlength="120" required></label>
+      <label>Contact (optional)<input name="contact" maxlength="120"></label><button type="submit">Add donor</button>
+    </form>
+  </section>
+  <section class="panel"><h2>Receipt history</h2>{{ show(rows) }}</section>
+{% endblock %}

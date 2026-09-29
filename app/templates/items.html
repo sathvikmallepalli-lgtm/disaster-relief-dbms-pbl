@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Items{% endblock %}
+{% block content %}
+  <div class="page-heading"><div><p class="eyebrow">Supply catalogue</p><h1>Relief items</h1>
+    <p>Simple create, read, update, and delete operations. Used items are protected by foreign keys.</p></div></div>
+  <section class="panel compact"><h2>Add item</h2>
+    <form method="post" class="inline-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <label>Name<input name="name" maxlength="100" required></label>
+      <label>Unit<input name="unit" maxlength="30" placeholder="kit / piece" required></label>
+      <label>Category<input name="category" maxlength="60" required></label>
+      <button type="submit">Add item</button>
+    </form>
+  </section>
+  <section class="panel"><h2>Item catalogue</h2>
+    {% if rows %}<div class="table-scroll"><table><thead><tr><th>Name</th><th>Unit</th><th>Category</th><th>Actions</th></tr></thead>
+      <tbody>{% for row in rows %}<tr><td>{{ row.name }}</td><td>{{ row.unit }}</td><td>{{ row.category }}</td><td class="actions">
+        <a href="{{ url_for('items_edit', item_id=row.item_id) }}">Edit</a>
+        <form method="post" action="{{ url_for('items_delete', item_id=row.item_id) }}">
+          <input type="hidden" name="csrf_token" value="{{ csrf_token }}"><button class="quiet danger" type="submit">Delete</button>
+        </form></td></tr>{% endfor %}</tbody></table></div>
+    {% else %}<p class="empty">No items recorded.</p>{% endif %}
+  </section>
+{% endblock %}

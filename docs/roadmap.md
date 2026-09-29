@@ -2,7 +2,7 @@
 
 This repository will keep the evidence for all three reviews in one place. A review is complete only when its files match a working demonstration.
 
-| Review | Required evidence | Planned repository evidence | Demonstration |
+| Review | Required evidence | Repository evidence | Demonstration |
 | --- | --- | --- | --- |
 | 1 · Week 7 | Problem, scope, objectives, users, functional requirements, conceptual ERD, initial relational schema | `docs/review-1/` and root `README.md` | Explain one family's path from registration to distribution using the ERD |
 | 2 · Week 11 | Functional dependencies and 3NF, data dictionary, DDL with constraints, sample data, joins, subqueries, aggregation, views, prototype | `docs/review-2/`, `database/` | Create sample records and run stock, unmet-needs, camp, donor, volunteer, distribution, and referral queries |

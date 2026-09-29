@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% from '_table.html' import show %}
+{% block title %}Family {{ family.registration_code }}{% endblock %}
+{% block content %}
+  <div class="page-heading"><div><p class="eyebrow"><a href="{{ url_for('families') }}">Families</a> / {{ family.registration_code }}</p>
+    <h1>{{ family.registration_code }}</h1><p>{{ family.camp_name }} · {{ family.status }}</p></div></div>
+  <section class="panel"><h2>Members</h2>{{ show(members) }}</section>
+  <section class="panel compact"><h2>Add family member</h2>
+    <form method="post" action="{{ url_for('family_member_add', family_id=family.family_id) }}" class="inline-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <label>Name<input name="full_name" maxlength="120" required></label>
+      <label>Age at registration<input name="age_at_registration" type="number" min="0" max="120"></label>
+      <label>Relationship<input name="relationship_to_head" maxlength="40" value="Member" required></label>
+      <button type="submit">Add member</button>
+    </form>
+  </section>
+  <section class="panel"><h2>Assessed needs</h2>{{ show(needs) }}</section>
+{% endblock %}

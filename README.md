@@ -14,9 +14,13 @@ The distinctive feature is a **transparent unmet-needs queue**: urgent requests 
 | --- | --- | --- | --- |
 | [1 · Design](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/issues/1) | Week 7 · 5 marks | Problem, scope, requirements, ERD, initial relational schema | Ready for discussion |
 | [2 · Database prototype](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/issues/2) | Week 11 · 5 marks | 3NF, data dictionary, DDL, sample data, SQL reports, prototype | Ready for discussion |
-| [3 · Application](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/issues/3) | Week 16 · 5 marks | Python app, CRUD, validation, reports, screenshots, final report, viva | Planned |
+| [3 · Application](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/issues/3) | Week 16 · 5 marks | Python app, CRUD, validation, reports, screenshots, final report, viva | Ready for discussion |
 
-Start with the [Review 1 evidence](docs/review-1/README.md), then run the [Review 2 MySQL prototype](docs/review-2/README.md). The [review roadmap](docs/roadmap.md) maps the assignment to each stage.
+Start with the [Review 1 evidence](docs/review-1/README.md), then run the [Review 2 MySQL prototype](docs/review-2/README.md) and [Review 3 Python app](docs/review-3/README.md). The [review roadmap](docs/roadmap.md) maps the assignment to each stage.
+
+**GitHub checkpoints:** [Review 1 design](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/tree/review-1-design-draft) · [Review 2 verified database](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/tree/review-2-verified) · [Review 3 app](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/tree/review-3-ready). Each review also has a linked issue in the table above for professor feedback.
+
+![Local app overview with fictional sample data](docs/review-3/screenshots/overview.png)
 
 ## Core workflow
 
@@ -50,15 +54,25 @@ docs/
     README.md            Database setup and demonstration
     normalization.md     Functional dependencies and 3NF
     data-dictionary.md   Field meanings
+  review-3/
+    README.md            App setup, walkthrough, output screens
+    report.md            Final project report
+    viva.md              Viva preparation
+    test-evidence.md     Checked integration results
 database/
   schema.sql             MySQL tables, constraints, and views
   seed.sql               Fictional sample data
   reports.sql            Join, subquery, aggregation, and view examples
 scripts/
   prototype.py           Command-line database demonstration
+app/
+  web.py                 Python web interface
+  services.py            Business rules and transactions
+tests/
+  test_workflow.py       MySQL integration checks
 ```
 
-The Python application will be added for Review 3. All example names and records are fictional.
+All example names and records are fictional. Follow the [Review 3 setup](docs/review-3/README.md#run-it-locally) to run the full application.
 
 ## Assignment source
 

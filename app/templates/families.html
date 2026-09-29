@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}Families{% endblock %}
+{% block content %}
+  <div class="page-heading"><div><p class="eyebrow">Camp registration</p><h1>Families</h1>
+    <p>Register a household and its members at one camp.</p></div></div>
+  <section class="panel">
+    <h2>Register family</h2>
+    <form method="post" class="form-grid">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <label>Camp<select name="camp_id" required><option value="">Choose camp</option>
+        {% for camp in camps %}<option value="{{ camp.camp_id }}">{{ camp.name }}</option>{% endfor %}</select></label>
+      <label>Registration code<input name="registration_code" maxlength="30" placeholder="F-004" required></label>
+      <div class="form-subheading">Family members</div>
+      <label>Head name<input name="member_name" maxlength="120" required></label>
+      <label>Age at registration<input name="member_age" type="number" min="0" max="120"></label>
+      <input type="hidden" name="member_relationship" value="Head">
+      <label>Second member name (optional)<input name="member_name" maxlength="120"></label>
+      <label>Age at registration<input name="member_age" type="number" min="0" max="120"></label>
+      <input type="hidden" name="member_relationship" value="Member">
+      <div class="form-actions"><button type="submit">Register family</button></div>
+    </form>
+  </section>
+  <section class="panel">
+    <div class="section-heading"><h2>Family register</h2>
+      <form method="get" class="search"><label class="sr-only" for="family-search">Search code</label>
+        <input id="family-search" name="q" value="{{ search }}" placeholder="Search registration code">
+        <button type="submit">Search</button></form></div>
+    {% if rows %}<div class="table-scroll"><table><thead><tr><th>Code</th><th>Camp</th><th>Members</th><th>Status</th><th>Registered</th></tr></thead>
+      <tbody>{% for row in rows %}<tr><td><a href="{{ url_for('family_detail', family_id=row.family_id) }}">{{ row.registration_code }}</a></td>
+        <td>{{ row.camp_name }}</td><td>{{ row.member_count }}</td><td>{{ row.status }}</td><td>{{ row.registered_at }}</td></tr>{% endfor %}</tbody></table></div>
+    {% else %}<p class="empty">No families match this search.</p>{% endif %}
+  </section>
+{% endblock %}

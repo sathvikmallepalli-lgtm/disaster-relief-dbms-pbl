@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% from '_table.html' import show %}
+{% block title %}Distribute{% endblock %}
+{% block content %}
+  <div class="page-heading"><div><p class="eyebrow">Controlled issue</p><h1>Distribute supplies</h1>
+    <p>The issue must fit the remaining assessed need and available stock.</p></div></div>
+  <section class="panel"><h2>Record distribution</h2>
+    <form method="post" class="form-grid">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}"><input type="hidden" name="request_token" value="{{ token }}">
+      <label>Unmet need<select name="need_id" required><option value="">Choose need</option>{% for need in needs %}<option value="{{ need.need_id }}">{{ need.registration_code }} · {{ need.item_name }} · {{ need.remaining_quantity }} remaining · {{ need.camp_name }}</option>{% endfor %}</select></label>
+      <label>Warehouse<select name="warehouse_id" required><option value="">Choose warehouse</option>{% for warehouse in warehouses %}<option value="{{ warehouse.warehouse_id }}">{{ warehouse.name }}</option>{% endfor %}</select></label>
+      <label>Active volunteer assignment<select name="assignment_id" required><option value="">Choose assignment</option>{% for assignment in assignments %}<option value="{{ assignment.assignment_id }}">{{ assignment.full_name }} · {{ assignment.camp_name }}</option>{% endfor %}</select></label>
+      <label>Quantity to issue<input name="quantity" type="number" min="1" required></label>
+      <div class="form-actions"><button type="submit">Record issue</button></div>
+    </form>
+  </section>
+  <section class="panel"><h2>Distribution history</h2>{{ show(rows) }}</section>
+{% endblock %}

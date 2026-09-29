@@ -1,0 +1,16 @@
+{% macro show(rows) %}
+  {% if rows %}
+    <div class="table-scroll">
+      <table>
+        <thead><tr>{% for key in rows[0].keys() %}<th>{{ key|replace('_', ' ')|title }}</th>{% endfor %}</tr></thead>
+        <tbody>
+          {% for row in rows %}
+            <tr>{% for value in row.values() %}<td>{{ value if value is not none else '—' }}</td>{% endfor %}</tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <p class="empty">No records yet.</p>
+  {% endif %}
+{% endmacro %}
