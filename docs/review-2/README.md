@@ -44,7 +44,7 @@ The sample assignment starts one day before the seed is loaded and ends 30 days 
 | Repeated donation or distribution request | Unique receipt/request token |
 | Positive quantities, valid statuses and times | MySQL `CHECK`, `NOT NULL`, and Python input validation |
 | Distributed item matches assessed need | Item is read from the locked need row, then the matching warehouse stock row is locked |
-| Total issued does not exceed need | Transaction locks the need row, then checks the existing total |
+| Total issued does not exceed need | A `READ COMMITTED` transaction locks the need row, then checks the latest committed total |
 | Stock never becomes negative | Transaction locks the stock row and decrements only when enough remains; `CHECK` is a second guard |
 | No overlapping volunteer assignments | Transaction locks the volunteer row, then checks overlapping intervals |
 | Stock history remains traceable | Receipt/issue and movement are committed together; movement source is unique |

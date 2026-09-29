@@ -29,7 +29,9 @@ def _positive_quantity(value):
 def _run_transaction(operation, duplicate_message="A record with these details already exists."):
     connection = get_connection()
     try:
-        connection.start_transaction()
+        # READ COMMITTED makes the post-lock total query see transactions that
+        # committed while this operation was waiting for the need row.
+        connection.start_transaction(isolation_level="READ COMMITTED")
         result = operation(connection)
         connection.commit()
         return result
