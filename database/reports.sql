@@ -22,15 +22,14 @@ SELECT * FROM v_volunteer_work ORDER BY volunteer_name, starts_at;
 -- JOIN: referrals still waiting for follow-up.
 SELECT * FROM v_open_referrals ORDER BY referred_at;
 
--- SUBQUERY: families whose requested water kits exceed current stock at any one warehouse.
-SELECT f.registration_code, n.quantity_required
+-- SUBQUERY: assessments above the average requested quantity for that item.
+SELECT f.registration_code, i.name AS item_name, n.quantity_required
 FROM needs n
 JOIN families f ON f.family_id = n.family_id
 JOIN relief_items i ON i.item_id = n.item_id
-WHERE i.name = 'Water kit'
-  AND n.quantity_required > (
-    SELECT COALESCE(MAX(s.quantity_on_hand), 0)
-    FROM stock s WHERE s.item_id = n.item_id
+WHERE n.quantity_required > (
+    SELECT AVG(n2.quantity_required)
+    FROM needs n2 WHERE n2.item_id = n.item_id
   );
 
 -- Stock ledger reconciliation: should return zero rows.
