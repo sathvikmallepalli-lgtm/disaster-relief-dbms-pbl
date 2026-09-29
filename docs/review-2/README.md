@@ -1,6 +1,6 @@
 # Review 2 · MySQL Database Prototype
 
-This review turns the [Review 1 design](../review-1/README.md) into a working MySQL database. It includes the [3NF explanation](normalization.md), [data dictionary](data-dictionary.md), [DDL](../../database/schema.sql), [fictional data](../../database/seed.sql), and [report queries](../../database/reports.sql).
+This review turns the [Review 1 design](../review-1/README.md) into a working MySQL database. It includes the [3NF explanation](normalization.md), [data dictionary](data-dictionary.md), [DDL](../../database/schema.sql), [fictional data](../../database/seed.sql), [report queries](../../database/reports.sql), and [sample query output](sample-output.md).
 
 ## Set up a local demonstration database
 

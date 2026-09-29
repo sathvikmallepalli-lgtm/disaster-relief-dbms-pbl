@@ -54,6 +54,7 @@ docs/
     README.md            Database setup and demonstration
     normalization.md     Functional dependencies and 3NF
     data-dictionary.md   Field meanings
+    sample-output.md     Checked sample query results
   review-3/
     README.md            App setup, walkthrough, output screens
     report.md            Final project report
