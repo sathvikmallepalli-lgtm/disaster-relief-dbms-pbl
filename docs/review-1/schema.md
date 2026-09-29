@@ -8,7 +8,7 @@ This is the Review 1 mapping from the conceptual ERD. `PK` means primary key; `F
 | `locations` | `location_id` | — | `district`, `area`, `state` |
 | `camps` | `camp_id` | `disaster_id → disasters`, `location_id → locations` | `name`, `capacity`, `opened_on` |
 | `families` | `family_id` | `camp_id → camps` | `registration_code` UK, `registered_at`, `status` |
-| `persons` | `person_id` | `family_id → families` | `full_name`, `age`, `relationship_to_head` |
+| `persons` | `person_id` | `family_id → families` | `full_name`, `age_at_registration`, `relationship_to_head` |
 | `relief_items` | `item_id` | — | `name` UK, `unit`, `category` |
 | `needs` | `need_id` | `family_id → families`, `item_id → relief_items` | `relief_round`, `quantity_required`, `urgency`, `assessed_at`; UK (`family_id`, `item_id`, `relief_round`) |
 | `donors` | `donor_id` | — | `name`, `contact` (optional) |

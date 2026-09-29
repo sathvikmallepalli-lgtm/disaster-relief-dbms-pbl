@@ -12,13 +12,22 @@ The distinctive feature is a **transparent unmet-needs queue**: urgent requests 
 
 | Review | Due in assignment | Evidence | Status |
 | --- | --- | --- | --- |
-| 1 · Design | Week 7 · 5 marks | Problem, scope, requirements, ERD, initial relational schema | Ready for discussion |
-| 2 · Database prototype | Week 11 · 5 marks | 3NF, data dictionary, DDL, sample data, SQL reports, prototype | Planned |
-| 3 · Application | Week 16 · 5 marks | Python app, CRUD, validation, reports, screenshots, final report, viva | Planned |
+| [1 · Design](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/issues/1) | Week 7 · 5 marks | Problem, scope, requirements, ERD, initial relational schema | Ready for discussion |
+| [2 · Database prototype](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/issues/2) | Week 11 · 5 marks | 3NF, data dictionary, DDL, sample data, SQL reports, prototype | Planned |
+| [3 · Application](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/issues/3) | Week 16 · 5 marks | Python app, CRUD, validation, reports, screenshots, final report, viva | Planned |
 
 Start with the [Review 1 evidence](docs/review-1/README.md). The [review roadmap](docs/roadmap.md) lists what will be added at each stage.
 
 ## Core workflow
+
+```mermaid
+flowchart LR
+    A[Register family] --> B[Assess item need]
+    C[Receive donation] --> D[Record warehouse stock]
+    B --> E[Distribute within need and stock]
+    D --> E
+    E --> F[Show unmet needs and movement history]
+```
 
 1. Register a disaster, camp, family, and family members.
 2. Record a family's item needs and urgency for a relief round.
