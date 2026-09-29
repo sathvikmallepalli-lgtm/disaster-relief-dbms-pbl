@@ -13,10 +13,10 @@ The distinctive feature is a **transparent unmet-needs queue**: urgent requests 
 | Review | Due in assignment | Evidence | Status |
 | --- | --- | --- | --- |
 | [1 · Design](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/issues/1) | Week 7 · 5 marks | Problem, scope, requirements, ERD, initial relational schema | Ready for discussion |
-| [2 · Database prototype](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/issues/2) | Week 11 · 5 marks | 3NF, data dictionary, DDL, sample data, SQL reports, prototype | Planned |
+| [2 · Database prototype](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/issues/2) | Week 11 · 5 marks | 3NF, data dictionary, DDL, sample data, SQL reports, prototype | Ready for discussion |
 | [3 · Application](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/issues/3) | Week 16 · 5 marks | Python app, CRUD, validation, reports, screenshots, final report, viva | Planned |
 
-Start with the [Review 1 evidence](docs/review-1/README.md). The [review roadmap](docs/roadmap.md) lists what will be added at each stage.
+Start with the [Review 1 evidence](docs/review-1/README.md), then run the [Review 2 MySQL prototype](docs/review-2/README.md). The [review roadmap](docs/roadmap.md) maps the assignment to each stage.
 
 ## Core workflow
 
@@ -46,9 +46,19 @@ docs/
     erd.md               Conceptual ER diagram
     schema.md            Initial relational schema
     walkthrough.md       Short presentation walkthrough
+  review-2/
+    README.md            Database setup and demonstration
+    normalization.md     Functional dependencies and 3NF
+    data-dictionary.md   Field meanings
+database/
+  schema.sql             MySQL tables, constraints, and views
+  seed.sql               Fictional sample data
+  reports.sql            Join, subquery, aggregation, and view examples
+scripts/
+  prototype.py           Command-line database demonstration
 ```
 
-The database scripts and application will be added for their respective reviews. All example names and records will be fictional.
+The Python application will be added for Review 3. All example names and records are fictional.
 
 ## Assignment source
 
