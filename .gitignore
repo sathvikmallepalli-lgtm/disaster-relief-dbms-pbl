@@ -16,3 +16,6 @@ venv/
 .DS_Store
 .idea/
 .vscode/
+
+# Temporary figures used while building the physical report
+reports/.build_assets/

@@ -18,6 +18,15 @@ The distinctive feature is a **transparent unmet-needs queue**: urgent requests 
 
 Start with the [Review 1 evidence](docs/review-1/README.md), then run the [Review 2 MySQL prototype](docs/review-2/README.md) and [Review 3 Python app](docs/review-3/README.md). The [review roadmap](docs/roadmap.md) maps the assignment to each stage.
 
+## Physical PBL report
+
+The completed 35-page A4 report follows the university's supplied format and is ready for printing. It uses the verified project evidence from all three reviews.
+
+- [Print-ready PDF](reports/PBL_Project_60_M_Shreevenkat_Sathvik.pdf)
+- [Editable Word document](reports/PBL_Project_60_M_Shreevenkat_Sathvik.docx)
+
+Student: **M SHREEVENKAT SATHVIK** (25WU0101168) · Semester III · CSE Panthers · Faculty guide: **Dr Sahithi**. The certificate and declaration include spaces for the required handwritten signatures.
+
 **GitHub checkpoints:** [Review 1 design](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/tree/review-1-design-draft) · [Review 2 verified database](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/tree/review-2-verified) · [Review 3 app](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/tree/review-3-ready). Each review also has a linked issue in the table above for professor feedback.
 
 ![Local app overview with fictional sample data](docs/review-3/screenshots/overview.png)
