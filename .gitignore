@@ -19,3 +19,5 @@ venv/
 
 # Temporary figures used while building the physical report
 reports/.build_assets/
+.codex-video-build/
+presentations/.build_video_deck/

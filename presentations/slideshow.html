@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project 60 Video Slides</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #071825; color: white; font: 16px Arial, sans-serif; }
+    main { height: 100%; display: grid; place-items: center; }
+    img { display: block; width: 100vw; height: 100vh; object-fit: contain; }
+    #help { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); background: #071825dd; padding: 8px 16px; border-radius: 20px; opacity: 0; transition: opacity .3s; pointer-events: none; }
+    body:hover #help, body:focus-within #help { opacity: 1; }
+  </style>
+</head>
+<body>
+  <main><img id="slide" src="slides/slide-01.png" alt="Project 60 presentation slide 1"></main>
+  <div id="help">← previous &nbsp; · &nbsp; → or Space next &nbsp; · &nbsp; F full screen &nbsp; · &nbsp; <span id="count">1 / 9</span></div>
+  <script>
+    const image = document.getElementById('slide');
+    const count = document.getElementById('count');
+    let page = 1;
+    function show(n) {
+      page = Math.max(1, Math.min(9, n));
+      image.src = `slides/slide-${String(page).padStart(2, '0')}.png`;
+      image.alt = `Project 60 presentation slide ${page}`;
+      count.textContent = `${page} / 9`;
+    }
+    document.addEventListener('keydown', e => {
+      if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(e.key)) { e.preventDefault(); show(page + 1); }
+      if (['ArrowLeft', 'PageUp', 'Backspace'].includes(e.key)) { e.preventDefault(); show(page - 1); }
+      if (e.key.toLowerCase() === 'f') {
+        if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen();
+      }
+      if (e.key === 'Home') show(1);
+      if (e.key === 'End') show(9);
+    });
+  </script>
+</body>
+</html>

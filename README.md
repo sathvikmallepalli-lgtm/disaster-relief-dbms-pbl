@@ -4,7 +4,7 @@
 
 Relief teams often track camp residents, requested supplies, donations, stock, and distributions in separate registers. This project designs one relational database so a team can see what each family still needs, what is available, and what has already been issued.
 
-The distinctive feature is a **transparent unmet-needs queue**: urgent requests appear first, then older requests. The database prototype will check distributions against recorded need and available stock, and make every stock change traceable. This uses ordinary relational design, SQL queries, constraints, and transactions.
+The distinctive feature is a **transparent unmet-needs queue**: urgent requests appear first, then older requests. The working app checks distributions against recorded need and available stock, and makes every stock change traceable. This uses ordinary relational design, SQL queries, constraints, and transactions.
 
 **Chosen stack:** MySQL database and a small Python application. The design uses basic forms and reports; it does not require AI, maps, or cloud services.
 
@@ -26,6 +26,15 @@ The completed 35-page A4 report follows the university's supplied format and is 
 - [Editable Word document](reports/PBL_Project_60_M_Shreevenkat_Sathvik.docx)
 
 Student: **M SHREEVENKAT SATHVIK** (25WU0101168) · Semester III · CSE Panthers · Faculty guide: **Dr Sahithi**. The certificate and declaration include spaces for the required handwritten signatures.
+
+## Presentation and video
+
+- [Ready-to-speak video script with timestamps](docs/video-presentation.md)
+- [Silent 5:25 visual track to narrate](presentations/Project_60_Silent_Visual_Track.mp4)
+- [Editable PowerPoint](presentations/Project_60_Video_Presentation.pptx) and [slide PDF](presentations/Project_60_Video_Slides.pdf)
+- [Safari slideshow](presentations/slideshow.html), [ER overview PDF](presentations/Project_60_ER_Overview.pdf), and [detailed final ER diagram](docs/review-3/er-diagram.md)
+
+The visual track shows selected lines from the actual SQL/Python files and screenshots from a verified MySQL run. To present the app live without the Mac's forgotten MySQL password, `bash scripts/start_video_demo.sh` starts a separate, local-only demo database with fictional sample data. The live walkthrough is in the video script.
 
 **GitHub checkpoints:** [Review 1 design](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/tree/review-1-design-draft) · [Review 2 verified database](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/tree/review-2-verified) · [Review 3 app](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/tree/review-3-ready). Each review also has a linked issue in the table above for professor feedback.
 
