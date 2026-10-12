@@ -21,3 +21,9 @@ venv/
 reports/.build_assets/
 .codex-video-build/
 presentations/.build_video_deck/
+
+# Personal recording materials kept only on this Mac
+docs/live-demo-script.md
+docs/video-presentation.md
+presentations/Project_60_Silent_Visual_Track.mp4
+presentations/code-slides/
