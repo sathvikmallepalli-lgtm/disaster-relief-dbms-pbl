@@ -29,12 +29,11 @@ Student: **M SHREEVENKAT SATHVIK** (25WU0101168) · Semester III · CSE Panthers
 
 ## Presentation and video
 
-- [Ready-to-speak video script with timestamps](docs/video-presentation.md)
-- [Silent 5:25 visual track to narrate](presentations/Project_60_Silent_Visual_Track.mp4)
+- [Live presentation script and Mac screen-recording steps](docs/live-demo-script.md)
 - [Editable PowerPoint](presentations/Project_60_Video_Presentation.pptx) and [slide PDF](presentations/Project_60_Video_Slides.pdf)
 - [Safari slideshow](presentations/slideshow.html), [ER overview PDF](presentations/Project_60_ER_Overview.pdf), and [detailed final ER diagram](docs/review-3/er-diagram.md)
 
-The visual track shows selected lines from the actual SQL/Python files and screenshots from a verified MySQL run. To present the app live without the Mac's forgotten MySQL password, `bash scripts/start_video_demo.sh` starts a separate, local-only demo database with fictional sample data. The live walkthrough is in the video script.
+The live script walks through slides, actual SQL/Python code, a real database issue, reports, and a rejected excess issue. To present the app without the Mac's forgotten MySQL password, `bash scripts/start_video_demo.sh` starts a separate, local-only demo database with fictional sample data. An [optional silent visual track](presentations/Project_60_Silent_Visual_Track.mp4) and its [timed narration script](docs/video-presentation.md) are also available.
 
 **GitHub checkpoints:** [Review 1 design](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/tree/review-1-design-draft) · [Review 2 verified database](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/tree/review-2-verified) · [Review 3 app](https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl/tree/review-3-ready). Each review also has a linked issue in the table above for professor feedback.
 
