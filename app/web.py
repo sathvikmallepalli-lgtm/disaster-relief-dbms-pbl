@@ -31,6 +31,13 @@ from app.services import (
 app = Flask(__name__)
 app.secret_key = os.environ.get("FLASK_SECRET_KEY") or secrets.token_hex(32)
 
+# Vercel can run the Flask application, but it cannot reach the disposable
+# MySQL server used by the classroom demo on this Mac. Keep the public
+# deployment useful and honest until a hosted MySQL instance is configured.
+HOSTED_DEMO_MODE = bool(os.environ.get("VERCEL")) and not (
+    os.environ.get("DB_HOST") or os.environ.get("DB_SOCKET")
+)
+
 
 @app.before_request
 def protect_forms():
@@ -38,6 +45,12 @@ def protect_forms():
         session["csrf_token"] = secrets.token_urlsafe(24)
     if request.method == "POST" and request.form.get("csrf_token") != session["csrf_token"]:
         abort(400, "Invalid form token. Reload the page and try again.")
+
+
+@app.before_request
+def hosted_demo_guard():
+    if HOSTED_DEMO_MODE and request.endpoint not in {"dashboard", "healthz", "static"}:
+        return redirect(url_for("dashboard"))
 
 
 @app.context_processor
@@ -61,6 +74,8 @@ def save_action(action, success_message, destination):
 
 @app.get("/")
 def dashboard():
+    if HOSTED_DEMO_MODE:
+        return render_template("deployment.html")
     counts = fetch_one(
         "SELECT "
         "(SELECT COUNT(*) FROM camps) AS camps, "
@@ -74,6 +89,11 @@ def dashboard():
         "ORDER BY FIELD(urgency, 'HIGH', 'MEDIUM', 'LOW'), assessed_at, need_id LIMIT 6"
     )
     return render_template("dashboard.html", counts=counts, queue=queue)
+
+
+@app.get("/healthz")
+def healthz():
+    return {"status": "ok", "service": "project-60-flask", "database": "local-demo-only"}
 
 
 @app.route("/families", methods=["GET", "POST"])

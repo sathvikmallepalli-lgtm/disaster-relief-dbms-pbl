@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Hosted demo{% endblock %}
+{% block content %}
+  <div class="page-heading">
+    <div>
+      <p class="eyebrow">DBMS PBL · Project 60</p>
+      <h1>Disaster Relief Resource and Camp Management</h1>
+      <p>This public Vercel deployment is online and ready for review.</p>
+    </div>
+  </div>
+  <section class="panel">
+    <h2>What is included</h2>
+    <p>The project demonstrates a MySQL schema, constraints, transactions, reports, and a Python Flask interface for disaster-relief operations.</p>
+    <div class="quick-links">
+      <a href="https://github.com/sathvikmallepalli-lgtm/disaster-relief-dbms-pbl">Open the GitHub repository <span>↗</span></a>
+      <a href="/healthz">Check deployment health <span>→</span></a>
+    </div>
+  </section>
+  <section class="panel">
+    <h2>Live database note</h2>
+    <p>The full interactive workflow uses the isolated MySQL demo database on the presentation computer. Vercel does not provide access to that local database, so this hosted page verifies the deployed Python application and links to the complete source and demo materials.</p>
+  </section>
+{% endblock %}
